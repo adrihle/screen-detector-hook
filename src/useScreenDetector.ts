@@ -22,9 +22,7 @@ const useScreenDetector = ({ breakpoints, detector }: UseScreenDetectorParams) =
       return prev;
     }, entries[0][0]);
 
-    if (screenDetected) {
-      setScreen(screenDetected);
-    }
+    if (screenDetected) setScreen(screenDetected);
 
     setLandscape(innerWidth > innerHeight);
   }, [breakpoints]);
