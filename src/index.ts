@@ -1,0 +1,1 @@
+export { useScreenDetector } from './useScreenDetector';;
