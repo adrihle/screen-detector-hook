@@ -14,8 +14,8 @@ const useScreenDetector = ({ breakpoints, detector }: UseScreenDetectorParams) =
   const [landscape, setLandscape] = useState<boolean>(false);
 
   const handleSize = useCallback(() => {
-    let innerWidth = window.innerWidth
-    let innerHeight = window.innerHeight
+    const innerWidth = window.innerWidth
+    const innerHeight = window.innerHeight
 
     const screenDetected = entries.reduce((prev, [breakpoint, width]) => {
       if (width < innerWidth) return breakpoint;
