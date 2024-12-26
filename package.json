@@ -1,7 +1,7 @@
 {
-  "name": "@adrihfly/shortcuts-hook",
+  "name": "@adrihfly/screen-detector-hook",
   "version": "1.1.0-beta.1",
-  "description": "A useful react package for manage keyboard shortcuts",
+  "description": "A useful react hook for handle screen position and size",
   "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
   "type": "dist/index.esm.js",
@@ -21,20 +21,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/adrihle/shortcuts-hook.git"
+    "url": "git+https://github.com/adrihle/screen-detector-hook.git"
   },
   "keywords": [
     "react",
     "hooks",
-    "shortcuts",
-    "keyboard"
+    "breakpoints",
+    "screen"
   ],
   "author": "Adrian Lopez Espinosa",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/adrihle/shortcuts-hook/issues"
+    "url": "https://github.com/adrihle/screen-detector-hook/issues"
   },
-  "homepage": "https://github.com/adrihle/shortcuts-hook#readme",
+  "homepage": "https://github.com/adrihle/screen-detector-hook#readme",
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
