@@ -6,6 +6,8 @@
 
 The hook allows you to dynamically adjust UI elements based on the screen size and orientation.
 
+![example](./demo.gif)
+
 ## Installation
 
 You can install the package via npm:
