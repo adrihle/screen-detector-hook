@@ -1,93 +1,75 @@
-# useShortcuts - React Hook for Keyboard Shortcuts
+# `useScreenDetector` Hook
 
-`useShortcuts` is a simple React hook that allows you to map keyboard shortcuts to specific actions. It enables your application to respond to user key presses with configurable actions, making it easier to handle keyboard shortcuts across your components.
+## Overview
+
+`useScreenDetector` is a custom React hook that helps you determine the current screen size and orientation (landscape or portrait) based on predefined breakpoints. It is designed to be used for responsive web development, where you need to handle different screen sizes like mobile, tablet, and desktop.
+
+The hook allows you to dynamically adjust UI elements based on the screen size and orientation.
 
 ## Installation
 
-To install the package, run:
+You can install the package via npm:
 
 ```bash
-npm install @your-package-name
+npm install @adrihfly/screen-detector-hook
 ```
 
-Or if you are using yarn:
+Or via yarn:
 
 ```bash
-yarn add @your-package-name
+yarn add @adrihfly/screen-detector-hook
 ```
 
 ## Usage
 
-You can use the useShortcuts hook to register a list of keyboard shortcuts and map them to specific actions in your components.
+### Example
 
-```tsx
-import { useShortcuts, ShortcutConfig } from '@your-package-name';
-
-const SHORTCUT_CONFIG: ShortcutConfig = {
-  map: [
-    {
-      action: () => console.log('Action 1 triggered!'),
-      modifiers: ['shiftKey', 'ctrlKey'],
-      key: 'o',
-      description: 'Sample action 1',
-    },
-    {
-      action: () => console.log('Action 2 triggered!'),
-      modifiers: ['altKey', 'ctrlKey'],
-      key: 'i',
-      description: 'Sample action 2',
-    },
-  ],
-};
-
-const MyComponent = () => {
-  useShortcuts(SHORTCUT_CONFIG);
-
-  return <div>Press keys to trigger actions</div>;
-};
-```
-
-## API
-
-#### useShortcuts(config: ShortcutConfig)
-
-This hook takes a ShortcutConfig object that defines a list of keyboard shortcuts and their associated actions.
-
-#### Parameters
-
-	•   config (object): The configuration for the keyboard shortcuts.
-	•	map (array of objects): An array of shortcut definitions. Each shortcut object can contain:
-	•	action (function): The action to be executed when the shortcut is triggered.
-	•	modifiers (array of strings): The modifier keys (e.g., ctrlKey, shiftKey) that need to be pressed.
-	•	key (string): The key that should be pressed along with the modifiers.
-	•	description (string): A description of the shortcut (optional).
-	•	silent (boolean, optional): If set to true, the hook will not log any warnings to the console when a shortcut is not found. Default is false.
-
-#### Example
+Here’s how to use the useScreenDetector hook:
 
 ```jsx
-interface ShortcutConfig {
-  map: {
-    action: () => void;
-    modifiers: string[];
-    key: string;
-    description: string;
-  }[];
-  silent?: boolean;
-}
+import React from 'react';
+import { useScreenDetector } from '@your-org/use-screen-detector';
+
+const MyComponent = () => {
+  const { screen, landscape } = useScreenDetector({
+    breakpoints: {
+      mobile: 400,
+      tablet: 768,
+      desktop: 1024,
+    },
+  });
+
+  return (
+    <div>
+      <p>Current screen size: {screen}</p>
+      <p>Landscape: {landscape ? 'Yes' : 'No'}</p>
+    </div>
+  );
+};
+
+export default MyComponent;
 ```
 
-## Contributions
+## Hook API
 
-Feel free to fork the repository, open issues, or submit pull requests.
+useScreenDetector(options):
 
-## License
+#### Parameters:
 
-Distributed under the MIT License. See LICENSE for more information.
+	•	options: An object containing the breakpoints for different screen sizes.
+	•	breakpoints: Object with keys as screen types (mobile, tablet, desktop) and values as width breakpoints in pixels.
 
-## Features included in the README:
+#### Returns: An object containing:
 
-- **Installation**: How to install the package using npm or yarn.
-- **Usage**: A simple example of how to use the `useShortcuts` hook in a React component.
-- **API**: Explanation of the configuration structure for the `useShortcuts` hook.
-- **License**: Information about contributing and licensing.
+	•	screen: The current screen type based on the breakpoints (mobile, tablet, desktop).
+	•	landscape: A boolean value indicating if the current orientation is landscape (true) or portrait (false).
+
+
+### Contribution
+
+Feel free to open issues or submit pull requests if you’d like to improve the hook or add new features. Contributions are always welcome!
+
+
+### License
+
+This project is licensed under the MIT License - see the LICENSE file for details.

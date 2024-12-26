@@ -9,7 +9,10 @@ type UseScreenDetectorParams = {
 };
 
 const useScreenDetector = ({ breakpoints, detector }: UseScreenDetectorParams) => {
-  const entries = useMemo(() => (Object.entries(breakpoints).sort((a, b) => a[1] > b[1] ? 1 : -1) as [Screen, Width][]), [breakpoints]);
+  const entries = useMemo(() => (
+    Object.entries(breakpoints).sort((a, b) => a[1] > b[1] ? 1 : -1) as [Screen, Width][]
+  ), [breakpoints]);
+
   const [screen, setScreen] = useState<Screen>(entries[0][0]);
   const [landscape, setLandscape] = useState<boolean>(false);
 
