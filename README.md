@@ -30,7 +30,7 @@ Here’s how to use the useScreenDetector hook:
 
 ```jsx
 import React from 'react';
-import { useScreenDetector } from '@your-org/use-screen-detector';
+import { useScreenDetector } from '@adrihfly/use-screen-detector';
 
 const MyComponent = () => {
   const { screen, landscape } = useScreenDetector({
